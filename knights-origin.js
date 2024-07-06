@@ -2404,7 +2404,7 @@ const levels = [
 ѠѠѠѠѠѠѠѠѠѠѠѠ`,
   map`
 Ժabcdefghijπ
-ԻklmnopqrstՖ
+ԻklmnopsqrtՖ
 ԼuvwxyzABCDՕ
 ԽEFGHIJKLMNՔ
 ԾOPQURSTVWXՓ
@@ -2415,318 +2415,217 @@ const levels = [
 ՃՄՅՆՇμՉՊՋՌՍՎ`
 ]
 
-setMap(levels[level])
+setMap(levels[0]) // menu
 
-let menu_pointer_loc = 1;   
+let menu_pointer_loc = 1;
 let option_select = "start_level";
 
+if (level == 0) {
+  onInput("w", () => {
+    menu_pointer_loc--;
+    if (menu_pointer_loc < 1) {
+      menu_pointer_loc = 3;
+    }
+    updateMenu();
+  });
 
-  if (level == 0) {
-    onInput("w", () => {
-      if (menu_pointer_loc == 1) {
-        setLegend (
-          [start_bk_45, bitmap`
-    LLL000L000000000
-    LL0000L000011111
-    10000L00001LL333
-    0000L00001LL3000
-    0LLL00001L000011
-    11000001L0003LLL
-    1010100LL003LL00
-    01L001LL003L0000
-    L0L0000001300001
-    LL0000000L30001L
-    0L0000001L300000
-    0L022000LL222022
-    010L022LLL200002
-    0100LLL2L0222102
-    0100022000002L02
-    01022000002220L2`],
-          [start_bk_55, bitmap`
-    01000LL000LL1100
-    01000000L0LLL100
-    01001000LL0LL100
-    010L10000L222022
-    010L1000002L2021
-    010LL1000L2L2022
-    0100L10001222020
-    0LL0LL10002L2022
-    0LL0LL10001L0LL1
-    0LL00LL1000L0LLL
-    010000LL100L00LL
-    01L100000000L000
-    01L1LL0000222020
-    01L111L000202020
-    0LLL10L330202020
-    0LLL10L0L3202020`],
-          [start_bk_65, bitmap`
-    0L00L1L00L220322
-    0L000L10000L2330
-    0L0LL00L10000333
-    0L000000L1000030
-    0L0000000L110L30
-    0L00L000000LLL30
-    0L00L11100000LL3
-    0L000LLL1111000L
-    0L0L000LLLLLL0L0
-    0L00L0000LLLLL00
-    0L0L0L0000LL0L33
-    0L00L0L000000L00
-    0L0LLL0L000000L0
-    0L0LLL00LL00000L
-    0L00L00L000LL000
-    0L00L000LL01LL00`]
-        )
-        option_select = "start_level";
-        console.log(option);
-      } else if (menu_pointer_loc == 2) {
-        setLegend (
-          [start_bk_45, bitmap`
-    LLL000L000000000
-    LL0000L000011111
-    10000L00001LL333
-    0000L00001LL3000
-    0LLL00001L000011
-    11000001L0003LLL
-    1010100LL003LL00
-    01L001LL003L0000
-    L0L0000001300001
-    LL0000000L30001L
-    0L0000001L300000
-    0L022000LL222022
-    010L022LLL200002
-    0100LLL2L0222102
-    0100022000002L02
-    01022000002220L2`],
-          [start_bk_55, bitmap`
-    01000LL000LL1100
-    01000000L0LLL100
-    01001000LL0LL100
-    010L10000L222022
-    010L1000002L2021
-    010LL1000L2L2022
-    0100L10001222020
-    0LL0LL10002L2022
-    0LL0LL10001L0LL1
-    0LL00LL1000L0LLL
-    010000LL100L00LL
-    01L100000000L000
-    01L1LL0000222020
-    01L111L000202020
-    0LLL10L330202020
-    0LLL10L0L3202020`],
-          [start_bk_65, bitmap`
-    0L00L1L00L220322
-    0L000L10000L2330
-    0L0LL00L10000333
-    0L000000L1000030
-    0L0000000L110L30
-    0L00L000000LLL30
-    0L00L11100000LL3
-    0L000LLL1111000L
-    0L0L000LLLLLL0L0
-    0L00L0000LLLLL00
-    0L0L0L0000LL0L33
-    0L00L0L000000L00
-    0L0LLL0L000000L0
-    0L0LLL00LL00000L
-    0L00L00L000LL000
-    0L00L000LL01LL00`]
-        )
-        option_select = "start_level";
-        menu_pointer_loc--;
-      } else if (menu_pointer_loc == 3) {
-        setLegend (
-          [start_bk_45, bitmap`
-    LLL000L000000000
-    LL0000L000011111
-    10000L00001LL333
-    0000L00001LL3000
-    0LLL00001L000011
-    11000001L0003LLL
-    1010100LL003LL00
-    01L001LL003L0000
-    L0L0000001300001
-    LL0000000L30001L
-    0L0000001L300000
-    0L000000LL222022
-    010L000LLL200002
-    0100LLLLL0222102
-    0100000000002L02
-    0100LLLL002220L2`],
-          [start_bk_55, bitmap`
-    01000LL000LL1100
-    01000000L0LLL100
-    01001000LL0LL100
-    010220000L222022
-    010L1220002L2021
-    010LL1020L2L2022
-    0100L22001222020
-    0LL22L10002L2022
-    0LL0LL10001L0LL1
-    0LL00LL1000L0LLL
-    010000LL100L00LL
-    01L100000000L000
-    01L1LL0000222020
-    01L111L000202020
-    0LLL10L330202020
-    0LLL10L0L3202020`],
-          [start_bk_65, bitmap`
-    0L00L1L00L220322
-    0L000L10000L2330
-    0L0LL00L10000333
-    0L000000L1000030
-    0L0000000L110L30
-    0L00L000000LLL30
-    0L00L11100000LL3
-    0L000LLL1111000L
-    0L0L000LLLLLL0L0
-    0L00L0000LLLLL00
-    0L0L0L0000LL0L33
-    0L00L0L000000L00
-    0L0LLL0L000000L0
-    0L0LLL00LL00000L
-    0L00L00L000LL000
-    0L00L000LL01LL00`]
-        )
-        option_select = "about_level";
-        menu_pointer_loc--;
-      }
-    })
-    
-    onInput("s", () => {
-      if (menu_pointer_loc == 1) {
-        setLegend (
-          [start_bk_45, bitmap`
-    LLL000L000000000
-    LL0000L000011111
-    10000L00001LL333
-    0000L00001LL3000
-    0LLL00001L000011
-    11000001L0003LLL
-    1010100LL003LL00
-    01L001LL003L0000
-    L0L0000001300001
-    LL0000000L30001L
-    0L0000001L300000
-    0L000000LL222022
-    010L000LLL200002
-    0100LLLLL0222102
-    0100000000002L02
-    0100LLLL002220L2`],
-          [start_bk_55, bitmap`
-    01000LL000LL1100
-    01000000L0LLL100
-    01001000LL0LL100
-    010220000L222022
-    010L1220002L2021
-    010LL1020L2L2022
-    0100L22001222020
-    0LL22L10002L2022
-    0LL0LL10001L0LL1
-    0LL00LL1000L0LLL
-    010000LL100L00LL
-    01L100000000L000
-    01L1LL0000222020
-    01L111L000202020
-    0LLL10L330202020
-    0LLL10L0L3202020`],
-          [start_bk_65, bitmap`
-    0L00L1L00L220322
-    0L000L10000L2330
-    0L0LL00L10000333
-    0L000000L1000030
-    0L0000000L110L30
-    0L00L000000LLL30
-    0L00L11100000LL3
-    0L000LLL1111000L
-    0L0L000LLLLLL0L0
-    0L00L0000LLLLL00
-    0L0L0L0000LL0L33
-    0L00L0L000000L00
-    0L0LLL0L000000L0
-    0L0LLL00LL00000L
-    0L00L00L000LL000
-    0L00L000LL01LL00`]
-        )
-        option_select = "about_level";
-        menu_pointer_loc++;
-      } else if (menu_pointer_loc == 2) {
-        setLegend (
-          [start_bk_45, bitmap`
-    LLL000L000000000
-    LL0000L000011111
-    10000L00001LL333
-    0000L00001LL3000
-    0LLL00001L000011
-    11000001L0003LLL
-    1010100LL003LL00
-    01L001LL003L0000
-    L0L0000001300001
-    LL0000000L30001L
-    0L0000001L300000
-    0L000000LL222022
-    010L000LLL200002
-    0100LLLLL0222102
-    0100000000002L02
-    0100LLLL002220L2`],
-          [start_bk_55, bitmap`
-    01000LL000LL1100
-    01000000L0LLL100
-    01001000LL0LL100
-    010L10000L222022
-    010L1100002L2021
-    010LL1000L2L2022
-    0100L11001222020
-    0LL0LL10002L2022
-    0LL0LL10001L0LL1
-    0LL00LL1000L0LLL
-    010000LL100L00LL
-    01L100000000L000
-    01L22L0000222020
-    01L1122000202020
-    0LLL10L230202020
-    0LLL1220L3202020`],
-          [start_bk_65, bitmap`
-    0L0221L00L220322
-    0L000L10000L2330
-    0L0LL00L10000333
-    0L000000L1000030
-    0L0000000L110L30
-    0L00L000000LLL30
-    0L00L11100000LL3
-    0L000LLL1111000L
-    0L0L000LLLLLL0L0
-    0L00L0000LLLLL00
-    0L0L0L0000LL0L33
-    0L00L0L000000L00
-    0L0LLL0L000000L0
-    0L0LLL00LL00000L
-    0L00L00L000LL000
-    0L00L000LL01LL00`]
-        )
-        option_select = "quit_level";
-        menu_pointer_loc++;
-      } else if (menu_pointer_loc == 3) {
-        
-      }
-    })
-    
-    onInput("l", () => {
-      switch (option_select) {
-        case "start_level":
-          setMap(levels[2]);
-          break;
-        case "about_level":
-          setMap(levels[2]);
-          break;
-        case "quit_level":
-          setMap(levels[1]);
-          break;
-        default:
-          setMap(levels[1]);
-          break;
-      }
-      console.log(option_select);
-    })
+  onInput("s", () => {
+    menu_pointer_loc++;
+    if (menu_pointer_loc > 3) {
+      menu_pointer_loc = 1;
+    }
+    updateMenu();
+  });
+
+  onInput("l", () => {
+    switch (option_select) {
+      case "start_level":
+        setMap(levels[1]);
+        break;
+      case "about_level":
+        setMap(levels[3]); // Assuming levels[3] is your about level
+        break;
+      case "quit_level":
+        setMap(levels[1]);
+        break;
+      default:
+        setMap(levels[1]);
+        break;
+    }
+    console.log(option_select);
+  });
+}
+
+function updateMenu() {
+  switch (menu_pointer_loc) {
+    case 1:
+      setLegend(
+        [start_bk_45, bitmap`
+          LLL000L000000000
+          LL0000L000011111
+          10000L00001LL333
+          0000L00001LL3000
+          0LLL00001L000011
+          11000001L0003LLL
+          1010100LL003LL00
+          01L001LL003L0000
+          L0L0000001300001
+          LL0000000L30001L
+          0L0000001L300000
+          0L022000LL222022
+          010L022LLL200002
+          0100LLL2L0222102
+          0100022000002L02
+          01022000002220L2`],
+        [start_bk_55, bitmap`
+          01000LL000LL1100
+          01000000L0LLL100
+          01001000LL0LL100
+          010L10000L222022
+          010L1000002L2021
+          010LL1000L2L2022
+          0100L10001222020
+          0LL0LL10002L2022
+          0LL0LL10001L0LL1
+          0LL00LL1000L0LLL
+          010000LL100L00LL
+          01L100000000L000
+          01L1LL0000222020
+          01L111L000202020
+          0LLL10L330202020
+          0LLL10L0L3202020`],
+        [start_bk_65, bitmap`
+          0L00L1L00L220322
+          0L000L10000L2330
+          0L0LL00L10000333
+          0L000000L1000030
+          0L0000000L110L30
+          0L00L000000LLL30
+          0L00L11100000LL3
+          0L000LLL1111000L
+          0L0L000LLLLLL0L0
+          0L00L0000LLLLL00
+          0L0L0L0000LL0L33
+          0L00L0L000000L00
+          0L0LLL0L000000L0
+          0L0LLL00LL00000L
+          0L00L00L000LL000
+          0L00L000LL01LL00`]
+      );
+      option_select = "start_level";
+      break;
+    case 2:
+      setLegend(
+        [start_bk_45, bitmap`
+          LLL000L000000000
+          LL0000L000011111
+          10000L00001LL333
+          0000L00001LL3000
+          0LLL00001L000011
+          11000001L0003LLL
+          1010100LL003LL00
+          01L001LL003L0000
+          L0L0000001300001
+          LL0000000L30001L
+          0L0000001L300000
+          0L000000LL222022
+          010L000LLL200002
+          0100LLLLL0222102
+          0100000000002L02
+          0100LLLL002220L2`],
+        [start_bk_55, bitmap`
+          01000LL000LL1100
+          01000000L0LLL100
+          01001000LL0LL100
+          010L10000L222022
+          010L1000002L2021
+          010LL1000L2L2022
+          0100L10001222020
+          0LL0LL10002L2022
+          0LL0LL10001L0LL1
+          0LL00LL1000L0LLL
+          010000LL100L00LL
+          01L100000000L000
+          01L1LL0000222020
+          01L111L000202020
+          0LLL10L330202020
+          0LLL10L0L3202020`],
+        [start_bk_65, bitmap`
+          0L00L1L00L220322
+          0L000L10000L2330
+          0L0LL00L10000333
+          0L000000L1000030
+          0L0000000L110L30
+          0L00L000000LLL30
+          0L00L11100000LL3
+          0L000LLL1111000L
+          0L0L000LLLLLL0L0
+          0L00L0000LLLLL00
+          0L0L0L0000LL0L33
+          0L00L0L000000L00
+          0L0LLL0L000000L0
+          0L0LLL00LL00000L
+          0L00L00L000LL000
+          0L00L000LL01LL00`]
+      );
+      option_select = "about_level";
+      break;
+    case 3:
+      setLegend(
+        [start_bk_45, bitmap`
+          LLL000L000000000
+          LL0000L000011111
+          10000L00001LL333
+          0000L00001LL3000
+          0LLL00001L000011
+          11000001L0003LLL
+          1010100LL003LL00
+          01L001LL003L0000
+          L0L0000001300001
+          LL0000000L30001L
+          0L0000001L300000
+          0L000000LL222022
+          010L000LLL200002
+          0100LLLLL0222102
+          0100000000002L02
+          0100LLLL002220L2`],
+        [start_bk_55, bitmap`
+          01000LL000LL1100
+          01000000L0LLL100
+          01001000LL0LL100
+          010L10000L222022
+          010L1000002L2021
+          010LL1000L2L2022
+          0100L10001222020
+          0LL0LL10002L2022
+          0LL0LL10001L0LL1
+          0LL00LL1000L0LLL
+          010000LL100L00LL
+          01L100000000L000
+          01L1LL0000222020
+          01L111L000202020
+          0LLL10L330202020
+          0LLL10L0L3202020`],
+        [start_bk_65, bitmap`
+          0L00L1L00L220322
+          0L000L10000L2330
+          0L0LL00L10000333
+          0L000000L1000030
+          0L0000000L110L30
+          0L00L000000LLL30
+          0L00L11100000LL3
+          0L000LLL1111000L
+          0L0L000LLLLLL0L0
+          0L00L0000LLLLL00
+          0L0L0L0000LL0L33
+          0L00L0L000000L00
+          0L0LLL0L000000L0
+          0L0LLL00LL00000L
+          0L00L00L000LL000
+          0L00L000LL01LL00`]
+      );
+      option_select = "quit_level";
+      break;
   }
+  console.log(option_select);
+}
